@@ -9,9 +9,10 @@ func Sum(numbers []int) int {
 	// }
 	for _, number := range numbers {
 		sum += number
-	}	
+	}
 	return sum
 }
+
 //切片有容量，容易超出
 // func SumAll(numbersToSum ...[]int)(sums []int){
 // 	lengthOfNumbers := len(numbersToSum)
@@ -25,7 +26,7 @@ func Sum(numbers []int) int {
 func SumAll(numbersToSum ...[]int) []int {
 	var sums []int
 	for _, numbers := range numbersToSum {
-			sums = append(sums, Sum(numbers))
+		sums = append(sums, Sum(numbers))
 	}
 
 	return sums
@@ -48,8 +49,8 @@ func SumAllTails(numbersToSum ...[]int) []int {
 
 func main() {
 	numbers := []int{1, 2, 3, 4, 5}
-	numbersArries := [][]int{{1,2},{3,4}}
-	stringArries := []string{"a","b","c"}
+	numbersArries := [][]int{{1, 2}, {3, 4}}
+	stringArries := []string{"a", "b", "c"}
 	fmt.Println(Sum(numbers))
 	fmt.Println(numbersArries)
 	fmt.Println(stringArries)
