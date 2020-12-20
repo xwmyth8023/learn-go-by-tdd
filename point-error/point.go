@@ -18,7 +18,6 @@ func (b Bitcoin) String() string {
 	return fmt.Sprintf("%d BTC", b)
 }
 
-
 type Stringer interface {
 	String() string
 }

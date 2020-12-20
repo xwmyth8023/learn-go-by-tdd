@@ -6,7 +6,7 @@ func assertStrings(t *testing.T, got, want string) {
 	t.Helper()
 
 	if got != want {
-			t.Errorf("got '%s' want '%s'", got, want)
+		t.Errorf("got '%s' want '%s'", got, want)
 	}
 }
 
@@ -14,11 +14,11 @@ func assertError(t *testing.T, got, want error) {
 	t.Helper()
 
 	if got != want {
-			t.Errorf("got error '%s' want '%s'", got, want)
+		t.Errorf("got error '%s' want '%s'", got, want)
 	}
 }
 
-func assertDefinition(t *testing.T, dictionary Dictionary, key, value string)  {
+func assertDefinition(t *testing.T, dictionary Dictionary, key, value string) {
 	t.Helper()
 	got, err := dictionary.Search(key)
 
@@ -30,19 +30,19 @@ func assertDefinition(t *testing.T, dictionary Dictionary, key, value string)  {
 		t.Errorf("got '%s' want '%s'", got, value)
 	}
 }
-func TestSearch(t *testing.T)  {
+func TestSearch(t *testing.T) {
 	// dictionary := map[string]string{"test": "this is just a test"}
 	dictionary := Dictionary{"test": "this is just a test"}
 
-	t.Run("exist word", func (t *testing.T)  {
+	t.Run("exist word", func(t *testing.T) {
 		got, _ := dictionary.Search("test")
 		want := "this is just a test"
 
 		assertStrings(t, got, want)
 	})
 	// got := Search(dictionary, "test")
-	
-	t.Run("unknown word", func (t *testing.T)  {
+
+	t.Run("unknown word", func(t *testing.T) {
 		_, got := dictionary.Search("unknown")
 
 		assertError(t, got, errorNotFound)
@@ -87,8 +87,8 @@ func TestAdd(t *testing.T) {
 	})
 }
 
-func TestUpdate(t *testing.T)  {
-	t.Run("update exist key value", func (t *testing.T)  {
+func TestUpdate(t *testing.T) {
+	t.Run("update exist key value", func(t *testing.T) {
 		key := "test"
 		value := "this is just a test"
 		newDefinition := "new definition"
@@ -98,7 +98,7 @@ func TestUpdate(t *testing.T)  {
 		assertDefinition(t, dictionary, key, newDefinition)
 	})
 
-	t.Run("update new key value", func (t *testing.T)  {
+	t.Run("update new key value", func(t *testing.T) {
 		dictionary := Dictionary{}
 		key := "new"
 		value := "new test"
@@ -109,8 +109,8 @@ func TestUpdate(t *testing.T)  {
 	})
 }
 
-func TestDelete(t *testing.T)  {
-	t.Run("delete exist key value", func (t *testing.T)  {
+func TestDelete(t *testing.T) {
+	t.Run("delete exist key value", func(t *testing.T) {
 		key := "test"
 		dictionary := Dictionary{key: "test definition"}
 		dictionary.Delete(key)
@@ -121,7 +121,7 @@ func TestDelete(t *testing.T)  {
 		}
 	})
 
-	t.Run("delete not exist key value", func (t *testing.T)  {
+	t.Run("delete not exist key value", func(t *testing.T) {
 		dictionary := Dictionary{"test": "test definition"}
 		key := "notExist"
 

@@ -5,8 +5,8 @@ package MapsTest
 type DictionaryErr string
 
 const (
-	errorNotFound = DictionaryErr("could not find the word you were looking for")
-	errorWordExits = DictionaryErr("cannot add word because it already exists")
+	errorNotFound       = DictionaryErr("could not find the word you were looking for")
+	errorWordExits      = DictionaryErr("cannot add word because it already exists")
 	ErrWordDoesNotExist = DictionaryErr("cannot update word because it does not exist")
 )
 
@@ -45,7 +45,7 @@ func (d Dictionary) Add(word, value string) error {
 
 func (d Dictionary) Update(word, value string) error {
 	_, err := d.Search(word)
-	
+
 	switch err {
 	case errorNotFound:
 		return ErrWordDoesNotExist
